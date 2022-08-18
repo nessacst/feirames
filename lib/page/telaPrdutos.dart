@@ -126,9 +126,6 @@ class _TelaProdutosState extends State<TelaProdutos> {
     setState(() {
       _produtos = listaTemporaria;
     });
-    //  listaTemporaria = [];
-
-    // print("Lista anotações: " + produtosRecuperados.toString());
   }
 
   _removerProduto(int id) async {
@@ -153,6 +150,18 @@ class _TelaProdutosState extends State<TelaProdutos> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.titulo),
+        actions: [
+          IconButton(
+            onPressed: () {
+              setState(() {
+                _exibirTelaProdutos();
+              });
+            },
+            icon: Icon(Icons.add_circle_outline),
+            iconSize: 30,
+            padding: EdgeInsets.fromLTRB(3, 3, 23, 3),
+          )
+        ],
         backgroundColor: Colors.orange,
       ),
       body: Column(
@@ -205,7 +214,7 @@ class _TelaProdutosState extends State<TelaProdutos> {
                                         : Colors.red),
                               ),
                               subtitle: Text(
-                                produto.quantidade!,
+                                "Qtd: " + produto.quantidade!,
                                 style: TextStyle(
                                   fontSize: 18,
                                 ),
@@ -281,14 +290,6 @@ class _TelaProdutosState extends State<TelaProdutos> {
                   ),
           ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.orange,
-        foregroundColor: Colors.white,
-        child: Icon(Icons.add),
-        onPressed: () {
-          _exibirTelaProdutos();
-        },
       ),
     );
   }

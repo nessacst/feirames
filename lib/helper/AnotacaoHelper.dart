@@ -104,7 +104,7 @@ class AnotacaoHelper {
     //("SELECT * FROM $tabelaProduto WHERE idFeira = ?"); // listar pela data
     List produtos = await bancoDados
         .rawQuery("SELECT * FROM $tabelaProduto WHERE idFeira = ?", [id]);
-    log("LISA: " + produtos.toList().toString());
+    log("LISTA: " + produtos.toList().toString());
     return produtos;
   }
 
